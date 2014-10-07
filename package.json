@@ -1,0 +1,23 @@
+{
+  "name": "Shareable",
+  "version": "0.7.0",
+  "description": "sns share interface for js developers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yoonsy/Shareable.git"
+  },
+  "author": "@yoonsy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yoonsy/Shareable/issues"
+  },
+  "homepage": "https://github.com/yoonsy/Shareable",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-uglify": "^0.6.0"
+  }
+}
