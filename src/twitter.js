@@ -1,15 +1,35 @@
 // TWITTER : https://dev.twitter.com/web/intents
+(function(){
 
-(function(app){
+  var popup = function popup(url, windowOptions){
 
-  app.twitter = function(options){
+    var width = 550,
+        height = 420,
+        winHeight = screen.height,
+        winWidth = screen.width;
+
+    var left, top;
+
+
+    left = Math.round((winWidth / 2) - (width / 2));
+    top = 0;
+
+    if (winHeight > height) {
+      top = Math.round((winHeight / 2) - (height / 2));
+    }
+
+    window.open(url, 'intent', windowOptions + ',width=' + width +
+                                       ',height=' + height + ',left=' + left + ',top=' + top);
+  }
+
+  Shareable.prototype.twitter = function(options){
 
     var url = 'https://twitter.com/intent/tweet?url=' + location.href;
     if( options.via ){ url += '&via=' + options.via }
     if( options.text ){ url += '&text=' + options.text }
 
-    app.utils.popup(url, 'scrollbars=yes,resizable=yes,toolbar=no,location=yes', 'intent');
+    popup(url, 'scrollbars=yes,resizable=yes,toolbar=no,location=yes');
 
   }
 
-})(Shareable);
+})();

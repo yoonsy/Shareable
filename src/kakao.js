@@ -1,27 +1,20 @@
 // KAKAO : https://developers.kakao.com/docs/js
 
-(function(app){
+(function(){
 
-  app.kakao = function(apiKey){
+  Shareable.prototype.kakaotalk = function(label, image, WebButton, webLink){
 
-    // app.utils.load('kakao');
-
-    // setTimeout(function(){
-    Kakao.init(apiKey);
-    // }, 1000);
-
-  }
-
-  app.kakaotalk = function(label, image, WebButton, webLink){
     Kakao.Link.sendTalkLink({
       label: label,
       image: image,
       webButton: WebButton,
       webLink: webLink
     });
+
   }
 
-  app.kakaostory = function(){
+
+  Shareable.prototype.kakaostory = function(){
 
     Kakao.Auth.login({
       success: function(authObj) {
@@ -45,7 +38,7 @@
             data : { id : res.id }
           });
         }).then(function(res) {
-          document.getElementById('post-result').innerHTML = JSON.stringify(res);
+          console.log('success', JSON.stringify(res));
         }, function (err) {
           alert(JSON.stringify(err));
         });
@@ -57,4 +50,4 @@
 
   }
 
-})(Shareable);
+})();

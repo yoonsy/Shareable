@@ -2,34 +2,39 @@
 <head>
   <title>SNS 공유</title>
   <meta charset="utf-8">
-  <meta property="og:url" content="https://developers.kakao.com/">
-  <meta property="og:title" content="Kakao Developers_">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="http://dn.api1.kage.kakao.co.kr/14/dn/btqaWlTUTtD/Jtsl6FoQWSZG1rb2wAEEy1/o.jpg">
+  <meta property="og:url" content="og_url">
+  <meta property="og:title" content="og_title">
+  <meta property="og:type" content="og_type">
+  <meta property="og:image" content="og_image">
 </head>
 <body>
+
   <button id="facebook">페이스북</button>
   <button id="twitter">트위터</button>
   <button id="kakaotalk">카카오톡</button>
   <button id="kakaostory">카카오스토리</button>
 
-  <script type="text/javascript" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-  <script type="text/javascript" src="dest/Shareable.min.js"></script>
+  <script type="text/javascript" src="dest/Shareable.js"></script>
 
   <script type="text/javascript">
 
+    var shareable = new Shareable({
+
+      fb_app_id: 'fb_app_id',
+      kakao_app_key: 'kakao_app_key'
+
+    });
+
     document.querySelector('#facebook').addEventListener('click', function(){
-      Shareable.facebook('facebook_app_id');
+      shareable.facebook();
     });
 
     document.querySelector('#twitter').addEventListener('click', function(){
-      Shareable.twitter({ via: 'vie_account', text: 'text' });
+      shareable.twitter({ via: 'vie_account', text: 'text' });
     });
 
-    Shareable.kakao('6070b83d89f0759d02e36d0e07048dd8');
-
     document.querySelector('#kakaotalk').addEventListener('click', function(){
-      Shareable.kakaotalk('카카오링크 샘플에 오신 것을 환영합니다.', {
+      shareable.kakaotalk('카카오링크 샘플에 오신 것을 환영합니다.', {
         src: 'http://dn.api1.kage.kakao.co.kr/14/dn/btqaWmFftyx/tBbQPH764Maw2R6IBhXd6K/o.jpg',
         width: '300',
         height: '200'
@@ -40,7 +45,7 @@
     });
 
     document.querySelector('#kakaostory').addEventListener('click', function(){
-      Shareable.kakaostory();
+      shareable.kakaostory();
     });
 
   </script>
