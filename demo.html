@@ -1,0 +1,52 @@
+<html>
+<head>
+  <title>SNS 공유</title>
+  <meta charset="utf-8">
+  <meta property="og:url" content="https://developers.kakao.com/">
+  <meta property="og:title" content="Kakao Developers_">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="http://dn.api1.kage.kakao.co.kr/14/dn/btqaWlTUTtD/Jtsl6FoQWSZG1rb2wAEEy1/o.jpg">
+</head>
+<body>
+  <button id="facebook">페이스북</button>
+  <button id="twitter">트위터</button>
+  <button id="kakaotalk">카카오톡</button>
+  <button id="kakaostory">카카오스토리</button>
+
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/utils.js"></script>
+  <script type="text/javascript" src="js/facebook.js"></script>
+  <script type="text/javascript" src="js/twitter.js"></script>
+  <script type="text/javascript" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+  <script type="text/javascript" src="js/kakao.js"></script>
+
+  <script type="text/javascript">
+
+    document.querySelector('#facebook').addEventListener('click', function(){
+      Shareable.facebook('facebook_app_id');
+    });
+
+    document.querySelector('#twitter').addEventListener('click', function(){
+      Shareable.twitter({ via: 'vie_account', text: 'text' });
+    });
+
+    Shareable.kakao('6070b83d89f0759d02e36d0e07048dd8');
+
+    document.querySelector('#kakaotalk').addEventListener('click', function(){
+      Shareable.kakaotalk('카카오링크 샘플에 오신 것을 환영합니다.', {
+        src: 'http://dn.api1.kage.kakao.co.kr/14/dn/btqaWmFftyx/tBbQPH764Maw2R6IBhXd6K/o.jpg',
+        width: '300',
+        height: '200'
+      }, {
+        text: '카카오 디벨로퍼스',
+        url: 'https://dev.kakao.com/docs/js'
+      }, {});
+    });
+
+    document.querySelector('#kakaostory').addEventListener('click', function(){
+      Shareable.kakaostory();
+    });
+
+  </script>
+</body>
+</html>
