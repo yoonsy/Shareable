@@ -174,7 +174,7 @@ window.Shareable = function Shareable(config){
 
   Shareable.prototype.twitter = function(options){
 
-    var shareUrl = shareUrl || location.href;
+    var shareUrl = options.shareUrl || location.href;
 
     var url = 'https://twitter.com/intent/tweet?url=' + shareUrl;
 
