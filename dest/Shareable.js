@@ -67,13 +67,15 @@ window.Shareable = function Shareable(config){
 (function(){
 
 
-  Shareable.prototype.facebook = function(){
+  Shareable.prototype.facebook = function(shareUrl){
+
+    var shareUrl = shareUrl || location.href;
 
     if( navigator.userAgent.toLowerCase().match(/crios/) ){
 
       location.href = 'https://www.facebook.com/dialog/share?app_id='+this.config.fb_app_id
                                           +'&display=popup'
-                                          +'&href='+location.href
+                                          +'&href='+shareUrl
                                           +'&redirect_uri='+location.href;
 
     } else {
@@ -82,7 +84,7 @@ window.Shareable = function Shareable(config){
         method: 'share',
         app_id: this.config.fb_app_id,
         display: 'popup',
-        href: location.href,
+        href: shareUrl,
       }, function(response){});
 
     }
@@ -107,7 +109,9 @@ window.Shareable = function Shareable(config){
   }
 
 
-  Shareable.prototype.kakaostory = function(){
+  Shareable.prototype.kakaostory = function(shareUrl){
+
+    var shareUrl = shareUrl || location.href;
 
     Kakao.Auth.login({
       success: function(authObj) {
@@ -115,7 +119,7 @@ window.Shareable = function Shareable(config){
         Kakao.API.request( {
           url : '/v1/api/story/linkinfo',
           data : {
-            url : location.href
+            url : shareUrl
           }
         }).then(function(res) {
           // 이전 API 호출이 성공한 경우 다음 API를 호출합니다.
@@ -170,7 +174,10 @@ window.Shareable = function Shareable(config){
 
   Shareable.prototype.twitter = function(options){
 
-    var url = 'https://twitter.com/intent/tweet?url=' + location.href;
+    var shareUrl = shareUrl || location.href;
+
+    var url = 'https://twitter.com/intent/tweet?url=' + shareUrl;
+
     if( options.via ){ url += '&via=' + options.via }
     if( options.text ){ url += '&text=' + options.text }
 

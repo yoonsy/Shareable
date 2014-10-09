@@ -24,7 +24,10 @@
 
   Shareable.prototype.twitter = function(options){
 
-    var url = 'https://twitter.com/intent/tweet?url=' + location.href;
+    var shareUrl = shareUrl || location.href;
+
+    var url = 'https://twitter.com/intent/tweet?url=' + shareUrl;
+
     if( options.via ){ url += '&via=' + options.via }
     if( options.text ){ url += '&text=' + options.text }
 

@@ -3,13 +3,15 @@
 (function(){
 
 
-  Shareable.prototype.facebook = function(){
+  Shareable.prototype.facebook = function(shareUrl){
+
+    var shareUrl = shareUrl || location.href;
 
     if( navigator.userAgent.toLowerCase().match(/crios/) ){
 
       location.href = 'https://www.facebook.com/dialog/share?app_id='+this.config.fb_app_id
                                           +'&display=popup'
-                                          +'&href='+location.href
+                                          +'&href='+shareUrl
                                           +'&redirect_uri='+location.href;
 
     } else {
@@ -18,7 +20,7 @@
         method: 'share',
         app_id: this.config.fb_app_id,
         display: 'popup',
-        href: location.href,
+        href: shareUrl,
       }, function(response){});
 
     }
