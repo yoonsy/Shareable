@@ -209,7 +209,6 @@ window.Shareable = function Shareable(config){
     var shareUrl = shareUrl || location.href;
 
     if( navigator.userAgent.toLowerCase().match(/android|iphone/) ){
-      alert(1);
       kakao.link("story").send({
         post : "http://m.media.daum.net/entertain/enews/view?newsid=20120927110708426",
         appid : "m.media.daum.net",
