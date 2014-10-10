@@ -8,7 +8,7 @@ module.exports = function(grunt) {
         separator: ';\n',
       },
       dist: {
-        src: ['src/*.js'],
+        src: ['lib/*.js','src/*.js'],
         dest: 'dest/<%= pkg.name %>.js',
       },
     },
@@ -22,7 +22,7 @@ module.exports = function(grunt) {
           mangle: true
         },
         files: {
-          'dest/<%= pkg.name %>.min.js': ['src/*.js']
+          'dest/<%= pkg.name %>.min.js': ['lib/*.js', 'src/*.js']
         }
       }
     }
