@@ -35,3 +35,25 @@ var shareable = new Shareable({
   kakao_app_key: 'kakao_app_key'
 });
 ```
+
+##### facebook
+```JavaScript
+shareable.facebook(shareUrl);
+```
+
+##### twitter
+```JavaScript
+shareable.twitter({ via: '', text: '', shareUrl: location.href });
+```
+
+##### kakao story
+```JavaScript
+// appOptions : https://github.com/kakao/kakaolink-web
+shareable.kakaostory(shareUrl, appOptions);
+```
+
+##### kakao talk
+```JavaScript
+// https://developers.kakao.com/docs/js-reference#kakao_link_sendtalklink(settings)
+shareable.kakaotalk(label, image, WebButton, webLink);
+```
