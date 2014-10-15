@@ -12,7 +12,7 @@ window.Shareable = function Shareable(config){
     js.src = url;
     fjs.parentNode.insertBefore(js, fjs);
 
-  }
+  };
 
   initializeFacebook = function initializeFacebook(){
 
@@ -28,7 +28,7 @@ window.Shareable = function Shareable(config){
 
     };
 
-  }
+  };
 
   initializeKakao = function initializeKakao(){
 
@@ -55,10 +55,10 @@ window.Shareable = function Shareable(config){
     }, 5);
 
 
-  }
+  };
 
 
   if( config.fb_app_id ){ initializeFacebook(); }
   if( config.kakao_app_key ){ initializeKakao(); }
 
-}
+};

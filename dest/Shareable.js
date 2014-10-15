@@ -107,7 +107,7 @@ window.Shareable = function Shareable(config){
     js.src = url;
     fjs.parentNode.insertBefore(js, fjs);
 
-  }
+  };
 
   initializeFacebook = function initializeFacebook(){
 
@@ -123,7 +123,7 @@ window.Shareable = function Shareable(config){
 
     };
 
-  }
+  };
 
   initializeKakao = function initializeKakao(){
 
@@ -150,13 +150,13 @@ window.Shareable = function Shareable(config){
     }, 5);
 
 
-  }
+  };
 
 
   if( config.fb_app_id ){ initializeFacebook(); }
   if( config.kakao_app_key ){ initializeKakao(); }
 
-};
+};;
 // FACEBOOK : https://developers.facebook.com/docs/sharing/reference/share-dialog
 
 (function(){
@@ -164,28 +164,28 @@ window.Shareable = function Shareable(config){
 
   Shareable.prototype.facebook = function(shareUrl){
 
-    var shareUrl = shareUrl || location.href;
+    shareUrl = shareUrl || location.href;
 
     if( navigator.userAgent.toLowerCase().match(/crios/) ){
 
-      location.href = 'https://www.facebook.com/dialog/share?app_id='+this.config.fb_app_id
-                                          +'&display=popup'
-                                          +'&href='+shareUrl
-                                          +'&redirect_uri='+location.href;
+      location.href = 'https://www.facebook.com/dialog/share' +
+                        '?app_id=' + this.config.fb_app_id +
+                        '&display=popup' +
+                        '&href=' + shareUrl +
+                        '&redirect_uri=' + location.href;
 
     } else {
 
       FB.ui({
         method: 'share',
         app_id: this.config.fb_app_id,
-        display: 'popup',
         href: shareUrl,
       }, function(response){});
 
     }
 
 
-  }
+  };
 
 })();;
 // KAKAO : https://developers.kakao.com/docs/js
@@ -201,12 +201,12 @@ window.Shareable = function Shareable(config){
       webLink: webLink
     });
 
-  }
+  };
 
 
   Shareable.prototype.kakaostory = function(shareUrl, appOptions){
 
-    var shareUrl = shareUrl || location.href;
+    shareUrl = shareUrl || location.href;
 
     if( navigator.userAgent.toLowerCase().match(/android|iphone/) ){
 
@@ -245,12 +245,12 @@ window.Shareable = function Shareable(config){
           });
         },
         fail: function(err) {
-          alert(JSON.stringify(err))
+          alert(JSON.stringify(err));
         }
       });
     }
 
-  }
+  };
 
 })();;
 // TWITTER : https://dev.twitter.com/web/intents
@@ -275,7 +275,7 @@ window.Shareable = function Shareable(config){
 
     window.open(url, 'intent', windowOptions + ',width=' + width +
                                        ',height=' + height + ',left=' + left + ',top=' + top);
-  }
+  };
 
   Shareable.prototype.twitter = function(options){
 
@@ -283,11 +283,11 @@ window.Shareable = function Shareable(config){
 
     var url = 'https://twitter.com/intent/tweet?url=' + shareUrl;
 
-    if( options.via ){ url += '&via=' + options.via }
-    if( options.text ){ url += '&text=' + options.text }
+    if( options.via ){ url += '&via=' + options.via; }
+    if( options.text ){ url += '&text=' + options.text; }
 
     popup(url, 'scrollbars=yes,resizable=yes,toolbar=no,location=yes');
 
-  }
+  };
 
 })();

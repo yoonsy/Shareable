@@ -20,7 +20,7 @@
 
     window.open(url, 'intent', windowOptions + ',width=' + width +
                                        ',height=' + height + ',left=' + left + ',top=' + top);
-  }
+  };
 
   Shareable.prototype.twitter = function(options){
 
@@ -28,11 +28,11 @@
 
     var url = 'https://twitter.com/intent/tweet?url=' + shareUrl;
 
-    if( options.via ){ url += '&via=' + options.via }
-    if( options.text ){ url += '&text=' + options.text }
+    if( options.via ){ url += '&via=' + options.via; }
+    if( options.text ){ url += '&text=' + options.text; }
 
     popup(url, 'scrollbars=yes,resizable=yes,toolbar=no,location=yes');
 
-  }
+  };
 
 })();

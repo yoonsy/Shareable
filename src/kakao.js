@@ -11,12 +11,12 @@
       webLink: webLink
     });
 
-  }
+  };
 
 
   Shareable.prototype.kakaostory = function(shareUrl, appOptions){
 
-    var shareUrl = shareUrl || location.href;
+    shareUrl = shareUrl || location.href;
 
     if( navigator.userAgent.toLowerCase().match(/android|iphone/) ){
 
@@ -55,11 +55,11 @@
           });
         },
         fail: function(err) {
-          alert(JSON.stringify(err))
+          alert(JSON.stringify(err));
         }
       });
     }
 
-  }
+  };
 
 })();
