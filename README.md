@@ -25,3 +25,13 @@ SNS 공유 인터페이스
 ##### kakao story
 > 웹 : [카카오 스토리에 웹사이트 공유하기](https://developers.kakao.com/docs/js#카카오-api-예제:-카카오스토리에-웹사이트-공유하기)  
 > 모바일 : [카카오 스토리 링크](http://www.kakao.com/services/api/story_link)
+
+### 사용법
+
+##### initialize
+```JavaScript
+var shareable = new Shareable({
+  fb_app_id: 'fb_app_id',
+  kakao_app_key: 'kakao_app_key'
+});
+```
