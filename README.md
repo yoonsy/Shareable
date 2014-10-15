@@ -16,7 +16,7 @@ SNS 공유 인터페이스
 > [Share Dialog](https://developers.facebook.com/docs/sharing/)
 
 ##### twitter
-> [Intents](https://dev.twitter.com/web/intents)
+> [Web Intents](https://dev.twitter.com/web/intents)
 
 ##### kakao talk
 > 웹 : 미지원  
